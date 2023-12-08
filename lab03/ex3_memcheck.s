@@ -22,8 +22,13 @@ loop:
     addi t0 t0 4
     # Check if we are done
     # If not, loop
-    bge t2 t1 loop
-
+    blt t1 t2 loop
+_free:
+    # Free the data in the heap
+    addi t0 t0 -40
+    add a0 x0 t0
+    jal free
+_exit:
     # Exit the program
     li a0 0
     jal exit
