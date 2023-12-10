@@ -34,7 +34,9 @@ ex3:
     #     where ^ is the exponent operator, not XOR
 
     # return 1 if a1 == 0
-    beq a1 x0 ex3_zero_case
+    addi sp sp -4
+		sw ra 0(sp)
+		beq a1 x0 ex3_zero_case
 
     # otherwise, return ex3(a0, a1-1) * a0
     mv t0 a0      # save a0 in t0
@@ -50,6 +52,7 @@ ex3:
 # please don't change anything after this line!
 ex3_zero_case:
     li a0 1
-
 ex3_end:
+		lw ra 0(sp)
+		addi sp sp 4
     ret
