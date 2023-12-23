@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0-61c.fcfeffb" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.fcfeffb(https://github.com/61c-teach/logisim-evolution).
+<project source="3.8.0-61c.966ca7a" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.966ca7a(https://github.com/61c-teach/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </tool>
     <tool name="Pin">
       <a name="appearance" val="classic"/>
@@ -144,7 +146,7 @@
     </comp>
     <comp lib="0" loc="(210,500)" name="Splitter">
       <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
+      <a name="bit1" val="none"/>
       <a name="bit10" val="1"/>
       <a name="bit11" val="1"/>
       <a name="bit12" val="1"/>
@@ -226,7 +228,7 @@
     </comp>
     <comp lib="0" loc="(290,450)" name="Tunnel">
       <a name="label" val="bits_five"/>
-      <a name="width" val="3"/>
+      <a name="width" val="2"/>
     </comp>
     <comp lib="0" loc="(290,500)" name="Tunnel">
       <a name="label" val="five_rest_zero"/>
@@ -251,7 +253,7 @@
     <comp lib="0" loc="(540,630)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="bits_five"/>
-      <a name="width" val="3"/>
+      <a name="width" val="2"/>
     </comp>
     <comp lib="0" loc="(540,710)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -291,8 +293,8 @@
       <a name="width" val="28"/>
     </comp>
     <comp lib="0" loc="(550,660)" name="Constant">
-      <a name="value" val="0x7"/>
-      <a name="width" val="3"/>
+      <a name="value" val="0x3"/>
+      <a name="width" val="2"/>
     </comp>
     <comp lib="0" loc="(550,740)" name="Constant">
       <a name="value" val="0x0"/>
@@ -352,7 +354,7 @@
       <a name="width" val="28"/>
     </comp>
     <comp lib="3" loc="(620,640)" name="Comparator">
-      <a name="width" val="3"/>
+      <a name="width" val="2"/>
     </comp>
     <comp lib="3" loc="(620,720)" name="Comparator">
       <a name="width" val="29"/>
@@ -405,14 +407,20 @@
     <wire from="(560,890)" to="(580,890)"/>
     <wire from="(570,520)" to="(570,540)"/>
     <wire from="(570,520)" to="(580,520)"/>
-    <wire from="(620,280)" to="(670,280)"/>
-    <wire from="(620,350)" to="(670,350)"/>
+    <wire from="(620,290)" to="(640,290)"/>
+    <wire from="(620,340)" to="(640,340)"/>
     <wire from="(620,420)" to="(670,420)"/>
-    <wire from="(620,520)" to="(670,520)"/>
+    <wire from="(620,500)" to="(630,500)"/>
     <wire from="(620,640)" to="(650,640)"/>
     <wire from="(620,720)" to="(650,720)"/>
     <wire from="(620,800)" to="(650,800)"/>
     <wire from="(620,880)" to="(650,880)"/>
+    <wire from="(630,500)" to="(630,520)"/>
+    <wire from="(630,520)" to="(670,520)"/>
+    <wire from="(640,280)" to="(640,290)"/>
+    <wire from="(640,280)" to="(670,280)"/>
+    <wire from="(640,340)" to="(640,350)"/>
+    <wire from="(640,350)" to="(670,350)"/>
     <wire from="(650,640)" to="(650,660)"/>
     <wire from="(650,660)" to="(670,660)"/>
     <wire from="(650,700)" to="(650,720)"/>
