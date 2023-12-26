@@ -42,6 +42,7 @@ double dotp_manual_reduction(double* x, double* y, int arr_size) {
     // TODO: Implement this function
     // Do NOT use the `reduction` directive here!
 		int NUM_THREAD = omp_get_num_threads();
+		/***
 		int TWO_POWER[10] = {
 			0, 2, 4, 8, 16, 32, 64, 128, 256, 512
 		};
@@ -49,17 +50,32 @@ double dotp_manual_reduction(double* x, double* y, int arr_size) {
 				if (NUM_THREAD < TWO_POWER[i]) NUM_THREAD = TWO_POWER[i];
 		}
 		double sum[NUM_THREAD];
-		// for(int i=0; i<NUM_THREAD; i++) printf("%lf, %d\n", sum[i], __LINE__);
 		#pragma omp parallel for
 		for (int i=0; i<arr_size; i++ ) {
 				int THREAD_IDX = omp_get_thread_num();
 				sum[THREAD_IDX] = x[i] * y[i];
 		}
+		
 		for (int i=1; i<NUM_THREAD; i*=2) {
 				for (int j=0; j<NUM_THREAD; j+=i) {
-						sum[j] = sum[j] + sum[i+j];
+						sum[j] = sum[j] + sum[j+i];
 				}
 		}
 		global_sum = sum[0];
-    return global_sum;
+    ***/
+		#pragma omp parallel
+		{
+				double sum = 0.0;
+
+				#pragma omp for
+				for (int i=0; i<arr_size; i++) {
+						sum += x[i] * y[i];
+				}
+
+				#pragma omp critical
+				{
+						global_sum += sum;
+				}
+		}
+		return global_sum;
 }
