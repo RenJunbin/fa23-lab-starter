@@ -1,0 +1,7 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "stdbool.h": "c",
+        "mpi.h": "c"
+    }
+}
